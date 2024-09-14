@@ -1,3 +1,4 @@
+import 'package:doctor_booking_flutter/pages/homepage.dart';
 import 'package:flutter/material.dart';
 
 class Onboarding extends StatefulWidget {
@@ -31,17 +32,27 @@ class _OnboardingState extends State<Onboarding> {
               ),
             ),
             SizedBox(height: 50),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 13),
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 222, 229, 212),
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text(
-                "Expert Doctors Just a Tap Away",
-                style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ),
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 13),
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 222, 229, 212),
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text(
+                  "Expert Doctor Just a Tap Away",
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             )
           ],

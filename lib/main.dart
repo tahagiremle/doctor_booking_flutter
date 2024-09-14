@@ -1,3 +1,4 @@
+import 'package:doctor_booking_flutter/pages/homepage.dart';
 import 'package:doctor_booking_flutter/pages/onboarding.dart';
 import 'package:flutter/material.dart';
 
@@ -8,9 +9,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Onboarding());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Onboarding(),
+    );
   }
 }
