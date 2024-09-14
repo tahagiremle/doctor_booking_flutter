@@ -1,3 +1,4 @@
+import 'package:doctor_booking_flutter/pages/booking.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -68,58 +69,77 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Flexible(
                   fit: FlexFit.tight,
-                  child: Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 254, 249, 217),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/health-check.png",
-                          width: 80,
-                          height: 80,
-                          fit: BoxFit.cover,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "Checkups",
-                          style: GoogleFonts.nunito(
-                              color: Colors.black87,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Booking(service: 'Checkups'),
+                          ));
+                    },
+                    child: Container(
+                      height: 150,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 254, 249, 217),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/health-check.png",
+                            width: 80,
+                            height: 80,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "Checkups",
+                            style: GoogleFonts.nunito(
+                                color: Colors.black87,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(width: 20),
                 Flexible(
                   fit: FlexFit.tight,
-                  child: Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 254, 249, 217),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/electrocardiogram.png",
-                          width: 80,
-                          height: 80,
-                          fit: BoxFit.cover,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "ECG Monitoring",
-                          style: GoogleFonts.nunito(
-                              color: Colors.black87,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                Booking(service: "ECG Monitoring"),
+                          ));
+                    },
+                    child: Container(
+                      height: 150,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 254, 249, 217),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/electrocardiogram.png",
+                            width: 80,
+                            height: 80,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "ECG Monitoring",
+                            style: GoogleFonts.nunito(
+                                color: Colors.black87,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -130,58 +150,78 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Flexible(
                   fit: FlexFit.tight,
-                  child: Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 254, 249, 217),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/cholesterol.png",
-                          width: 80,
-                          height: 80,
-                          fit: BoxFit.cover,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "Cholesterol Level",
-                          style: GoogleFonts.nunito(
-                              color: Colors.black87,
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                Booking(service: "Cholesterol Level"),
+                          ));
+                    },
+                    child: Container(
+                      height: 150,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 254, 249, 217),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/cholesterol.png",
+                            width: 80,
+                            height: 80,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "Cholesterol Level",
+                            style: GoogleFonts.nunito(
+                                color: Colors.black87,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(width: 20),
                 Flexible(
                   fit: FlexFit.tight,
-                  child: Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 254, 249, 217),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/blood-pressure.png",
-                          width: 80,
-                          height: 80,
-                          fit: BoxFit.cover,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "Blood Pressure ",
-                          style: GoogleFonts.nunito(
-                              color: Colors.black87,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                Booking(service: "Blood Pressure"),
+                          ));
+                    },
+                    child: Container(
+                      height: 150,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 254, 249, 217),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/blood-pressure.png",
+                            width: 80,
+                            height: 80,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "Blood Pressure",
+                            style: GoogleFonts.nunito(
+                                color: Colors.black87,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -192,58 +232,78 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Flexible(
                   fit: FlexFit.tight,
-                  child: Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 254, 249, 217),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/cardiac.png",
-                          width: 80,
-                          height: 80,
-                          fit: BoxFit.cover,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "Cardiac Tests",
-                          style: GoogleFonts.nunito(
-                              color: Colors.black87,
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                Booking(service: "Cardiac Tests"),
+                          ));
+                    },
+                    child: Container(
+                      height: 150,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 254, 249, 217),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/cardiac.png",
+                            width: 80,
+                            height: 80,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "Cardiac Tests",
+                            style: GoogleFonts.nunito(
+                                color: Colors.black87,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(width: 20),
                 Flexible(
                   fit: FlexFit.tight,
-                  child: Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 254, 249, 217),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/heartvalve.png",
-                          width: 80,
-                          height: 80,
-                          fit: BoxFit.cover,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "Heart Assessment",
-                          style: GoogleFonts.nunito(
-                              color: Colors.black87,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                Booking(service: "Heart Assessment"),
+                          ));
+                    },
+                    child: Container(
+                      height: 150,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 254, 249, 217),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/heartvalve.png",
+                            width: 80,
+                            height: 80,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "Heart Assessment",
+                            style: GoogleFonts.nunito(
+                                color: Colors.black87,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
