@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "985410587906",
+    "project_id": "doctor-booking-app-6855",
+    "storage_bucket": "doctor-booking-app-6855.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985410587906:android:083ea7ec24754d1ae3c61b",
+        "android_client_info": {
+          "package_name": "com.example.doctor_booking_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhbHJSo5APDM7simJa2VLKf73LHHUrsy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
