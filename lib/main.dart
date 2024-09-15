@@ -2,6 +2,7 @@ import 'package:doctor_booking_flutter/pages/booking.dart';
 import 'package:doctor_booking_flutter/pages/homepage.dart';
 import 'package:doctor_booking_flutter/pages/login.dart';
 import 'package:doctor_booking_flutter/pages/onboarding.dart';
+import 'package:doctor_booking_flutter/pages/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LogIn(),
+      home: SignUp(),
     );
   }
 }

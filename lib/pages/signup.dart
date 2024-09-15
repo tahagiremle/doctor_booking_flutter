@@ -1,15 +1,15 @@
-import 'package:doctor_booking_flutter/pages/signup.dart';
+import 'package:doctor_booking_flutter/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LogIn extends StatefulWidget {
-  const LogIn({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<LogIn> createState() => _LogInState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LogInState extends State<LogIn> {
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +33,7 @@ class _LogInState extends State<LogIn> {
                 ),
               ),
               child: Text(
-                "Hello\nSign in!",
+                "Create Your\nAccount",
                 style: GoogleFonts.nunito(
                     color: Colors.black,
                     fontSize: 32,
@@ -57,6 +57,20 @@ class _LogInState extends State<LogIn> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    "Name",
+                    style: GoogleFonts.nunito(
+                        color: Color.fromARGB(255, 158, 95, 50),
+                        fontSize: 23,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "Name",
+                      prefixIcon: Icon(Icons.person),
+                    ),
+                  ),
+                  SizedBox(height: 40),
                   Text(
                     "Gmail",
                     style: GoogleFonts.nunito(
@@ -85,19 +99,6 @@ class _LogInState extends State<LogIn> {
                     ),
                     obscureText: true,
                   ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        "Forgot Password?",
-                        style: GoogleFonts.nunito(
-                            color: Color.fromARGB(255, 46, 31, 35),
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
                   SizedBox(height: 60),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 10),
@@ -113,7 +114,7 @@ class _LogInState extends State<LogIn> {
                         borderRadius: BorderRadius.circular(30)),
                     child: Center(
                       child: Text(
-                        "SIGN IN",
+                        "SIGN UP",
                         style: GoogleFonts.nunito(
                             color: Colors.black,
                             fontSize: 24,
@@ -126,7 +127,7 @@ class _LogInState extends State<LogIn> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        "Don't have account?",
+                        "Already have an account?",
                         style: GoogleFonts.nunito(
                             color: Color.fromARGB(255, 46, 31, 35),
                             fontSize: 17,
@@ -137,16 +138,17 @@ class _LogInState extends State<LogIn> {
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SignUp(),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LogIn(),
+                        ),
+                      );
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          "Sign up",
+                          "Sign In",
                           style: GoogleFonts.nunito(
                               color: Color.fromARGB(255, 78, 53, 60),
                               fontSize: 22,
