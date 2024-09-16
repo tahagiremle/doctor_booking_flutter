@@ -1,6 +1,7 @@
 import 'package:doctor_booking_flutter/admin/admin_login.dart';
 import 'package:doctor_booking_flutter/admin/booking_admin.dart';
 import 'package:doctor_booking_flutter/pages/booking.dart';
+import 'package:doctor_booking_flutter/pages/forgot_password.dart';
 import 'package:doctor_booking_flutter/pages/homepage.dart';
 import 'package:doctor_booking_flutter/pages/login.dart';
 import 'package:doctor_booking_flutter/pages/onboarding.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BookingAdmin(),
+      home: LogIn(),
     );
   }
 }
