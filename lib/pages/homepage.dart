@@ -1,4 +1,5 @@
 import 'package:doctor_booking_flutter/pages/booking.dart';
+import 'package:doctor_booking_flutter/services/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,6 +11,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String? name;
+
+  getthedatafromsharedpref() async {
+    name = await SharedPreferencesHelper().getUserName();
+    setState(() {});
+  }
+
+  getontheload() async {
+    await getthedatafromsharedpref();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getontheload();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.w500),
                     ),
                     Text(
-                      "Taha Giremle",
+                      name!,
                       style: GoogleFonts.nunito(
                           color: Colors.black87,
                           fontSize: 24,

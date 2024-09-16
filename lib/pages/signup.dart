@@ -1,10 +1,12 @@
 import 'package:doctor_booking_flutter/pages/homepage.dart';
 import 'package:doctor_booking_flutter/pages/login.dart';
 import 'package:doctor_booking_flutter/services/database.dart';
+import 'package:doctor_booking_flutter/services/shared_pref.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:random_string/random_string.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -28,6 +30,11 @@ class _SignUpState extends State<SignUp> {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: mail!, password: password!);
         String id = randomAlpha(10);
+
+        await SharedPreferencesHelper().saveUserName(namecontroller.text);
+        await SharedPreferencesHelper().saveUserEmail(emailcontroller.text);
+        await SharedPreferencesHelper().saveUserId(id);
+
         Map<String, dynamic> userInfoMap = {
           "Name": namecontroller.text,
           "Email": emailcontroller.text,
