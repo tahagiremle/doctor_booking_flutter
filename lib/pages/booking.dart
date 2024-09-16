@@ -1,3 +1,5 @@
+import 'package:doctor_booking_flutter/services/database.dart';
+import 'package:doctor_booking_flutter/services/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,6 +12,25 @@ class Booking extends StatefulWidget {
 }
 
 class _BookingState extends State<Booking> {
+  String? name, email;
+
+  getthedatafromsharedpref() async {
+    name = await SharedPreferencesHelper().getUserName();
+    email = await SharedPreferencesHelper().getUserEmail();
+    setState(() {});
+  }
+
+  getontheload() async {
+    await getthedatafromsharedpref();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getontheload();
+    super.initState();
+  }
+
   DateTime _selectedDate = DateTime.now();
 
   Future<void> _selectDate(BuildContext context) async {
@@ -179,7 +200,26 @@ class _BookingState extends State<Booking> {
             ),
             SizedBox(height: 40),
             GestureDetector(
-              onTap: () {},
+              onTap: () async {
+                Map<String, dynamic> userBookingMap = {
+                  "Service": widget.service,
+                  "Date":
+                      "${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}"
+                          .toString(),
+                  "Time": _selectedTime.format(context).toString(),
+                  "Username": name,
+                  "Email": email,
+                };
+                await DatabaseMethods()
+                    .addUserBooking(userBookingMap)
+                    .then((value) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                    "Services has been booked Successfully!",
+                    style: GoogleFonts.nunito(fontSize: 20),
+                  )));
+                });
+              },
               child: Container(
                 margin: EdgeInsets.only(right: 15, left: 5),
                 width: MediaQuery.of(context).size.width,
