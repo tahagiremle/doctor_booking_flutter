@@ -40,15 +40,15 @@ class _BookingAdminState extends State<BookingAdmin> {
                       elevation: 10,
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             colors: [
-                              Color.fromARGB(255, 255, 211, 182),
-                              Color.fromARGB(255, 220, 164, 124),
-                              Color(0xFFb4817e),
+                              Color(0xFF91eae4),
+                              Color(0xFF86a8e7),
+                              Color(0xFF7f7fd5),
                             ],
                           ),
                         ),
@@ -65,7 +65,7 @@ class _BookingAdminState extends State<BookingAdmin> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text(
                               "Name :  " + ds["Username"],
                               style: GoogleFonts.nunito(
@@ -73,7 +73,7 @@ class _BookingAdminState extends State<BookingAdmin> {
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 5),
                             Text(
                               "Service :   " + ds["Service"],
                               style: GoogleFonts.nunito(
@@ -81,7 +81,7 @@ class _BookingAdminState extends State<BookingAdmin> {
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 5),
                             Text(
                               "Date :   " + ds["Date"],
                               style: GoogleFonts.nunito(
@@ -89,7 +89,7 @@ class _BookingAdminState extends State<BookingAdmin> {
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 5),
                             Text(
                               "Time :   " + ds["Time"],
                               style: GoogleFonts.nunito(
@@ -97,16 +97,16 @@ class _BookingAdminState extends State<BookingAdmin> {
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             GestureDetector(
                               onTap: () async {
                                 await DatabaseMethods().DeleteBookin(ds.id);
                               },
                               child: Container(
-                                padding: EdgeInsets.only(
+                                padding: const EdgeInsets.only(
                                     top: 10, bottom: 10, left: 20, right: 20),
                                 decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 46, 31, 35),
+                                    color: const Color.fromARGB(255, 46, 31, 35),
                                     borderRadius: BorderRadius.circular(10)),
                                 child: Text(
                                   "Done",
@@ -117,7 +117,7 @@ class _BookingAdminState extends State<BookingAdmin> {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                           ],
                         ),
                       ),
@@ -131,7 +131,7 @@ class _BookingAdminState extends State<BookingAdmin> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 60, left: 20, right: 20),
+        margin: const EdgeInsets.only(top: 60, left: 20, right: 20),
         child: Column(
           children: [
             Center(
@@ -143,7 +143,7 @@ class _BookingAdminState extends State<BookingAdmin> {
                     fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Expanded(child: allBookings()),
           ],
         ),

@@ -45,35 +45,43 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFFffd89b),
+              Color(0xFF19547b),
+            ],
+          ),
+        ),
         child: Column(
           children: [
-            SizedBox(height: 70),
+            const SizedBox(height: 70),
             Container(
               alignment: Alignment.topCenter,
               child: Text(
                 "Password Recovery",
                 style: GoogleFonts.nunito(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               "Enter your mail",
               style: GoogleFonts.nunito(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Form(
               key: _formkey,
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                padding: EdgeInsets.only(left: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.white70, width: 2),
                     borderRadius: BorderRadius.circular(30)),
@@ -91,11 +99,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       hintText: "Email",
                       hintStyle:
                           GoogleFonts.nunito(fontSize: 18, color: Colors.white),
-                      prefixIcon: Icon(Icons.mail_outline)),
+                      prefixIcon: const Icon(Icons.mail_outline)),
                 ),
               ),
             ),
-            SizedBox(height: 43),
+            const SizedBox(height: 43),
             GestureDetector(
               onTap: () async {
                 if (_formkey.currentState!.validate()) {
@@ -107,14 +115,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               },
               child: Container(
                 padding:
-                    EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+                    const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 158, 95, 50),
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.orangeAccent),
                 child: Text(
                   "Send Email",
                   style: GoogleFonts.nunito(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
                 ),

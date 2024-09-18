@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String? name;
+  String? name = "";
 
   getthedatafromsharedpref() async {
     name = await SharedPreferencesHelper().getUserName();
@@ -32,9 +32,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 142, 172, 205),
       body: Container(
-        margin: EdgeInsets.only(top: 40, left: 20, right: 20),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF91eae4),
+              Color(0xFF86a8e7),
+              Color(0xFF7f7fd5),
+            ],
+          ),
+        ),
+        padding: EdgeInsets.only(top: 40, left: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -99,7 +107,12 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 254, 249, 217),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFffd89b),
+                              Color(0xFF19547b),
+                            ],
+                          ),
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -138,7 +151,12 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 254, 249, 217),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFffd89b),
+                              Color(0xFF19547b),
+                            ],
+                          ),
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -181,7 +199,12 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 254, 249, 217),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFffd89b),
+                              Color(0xFF19547b),
+                            ],
+                          ),
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -220,7 +243,12 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 254, 249, 217),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFffd89b),
+                              Color(0xFF19547b),
+                            ],
+                          ),
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -263,7 +291,12 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 254, 249, 217),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFffd89b),
+                              Color(0xFF19547b),
+                            ],
+                          ),
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -302,7 +335,12 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 254, 249, 217),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFffd89b),
+                              Color(0xFF19547b),
+                            ],
+                          ),
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,

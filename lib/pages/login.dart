@@ -21,26 +21,28 @@ class _LogInState extends State<LogIn> {
 
   userLogin() async {
     try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: mail!, password: password!);
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: mail!, password: password!);
       Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => HomePage(),
-          ));
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomePage(),
+        ),
+      );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(
-          "No user Found for that Email",
-          style: GoogleFonts.nunito(fontSize: 18, color: Colors.black),
-        )));
+          content: Text(
+            "No user Found for that Email",
+            style: GoogleFonts.nunito(fontSize: 18, color: Colors.black),
+          ),
+        ));
       } else if (e.code == 'wrong-password') {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(
-          "Wrong Password Provided by User",
-          style: GoogleFonts.nunito(fontSize: 18, color: Colors.black),
-        )));
+          content: Text(
+            "Wrong Password Provided by User",
+            style: GoogleFonts.nunito(fontSize: 18, color: Colors.black),
+          ),
+        ));
       }
     }
   }
@@ -52,37 +54,33 @@ class _LogInState extends State<LogIn> {
         child: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(
-                left: 30,
-                top: 50,
-              ),
+              padding: const EdgeInsets.only(left: 30, top: 50),
               height: MediaQuery.of(context).size.height / 2,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Color.fromARGB(255, 255, 211, 182),
-                    Color.fromARGB(255, 220, 164, 124),
-                    Color(0xFFb4817e),
+                    Color(0xFF91eae4),
+                    Color(0xFF86a8e7),
+                    Color(0xFF7f7fd5),
                   ],
                 ),
               ),
               child: Text(
                 "Hello\nSign in!",
                 style: GoogleFonts.nunito(
-                    color: Colors.black,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold),
+                  color: Colors.black,
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Container(
-              padding:
-                  EdgeInsets.only(top: 40, left: 30, right: 30, bottom: 30),
-              margin:
-                  EdgeInsets.only(top: MediaQuery.of(context).size.height / 4),
+              padding: const EdgeInsets.only(top: 40, left: 30, right: 30, bottom: 30),
+              margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 4),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
@@ -97,9 +95,10 @@ class _LogInState extends State<LogIn> {
                     Text(
                       "Gmail",
                       style: GoogleFonts.nunito(
-                          color: Color.fromARGB(255, 158, 95, 50),
-                          fontSize: 23,
-                          fontWeight: FontWeight.w700),
+                        color: const Color.fromARGB(255, 1, 73, 102),
+                        fontSize: 23,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                     TextFormField(
                       validator: (value) {
@@ -109,18 +108,19 @@ class _LogInState extends State<LogIn> {
                         return null;
                       },
                       controller: emailcontroller,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "Gmail",
                         prefixIcon: Icon(Icons.mail),
                       ),
                     ),
-                    SizedBox(height: 40),
+                    const SizedBox(height: 40),
                     Text(
                       "Password",
                       style: GoogleFonts.nunito(
-                          color: Color.fromARGB(255, 158, 95, 50),
-                          fontSize: 23,
-                          fontWeight: FontWeight.w700),
+                        color: const Color.fromARGB(255, 1, 73, 102),
+                        fontSize: 23,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                     TextFormField(
                       validator: (value) {
@@ -130,26 +130,27 @@ class _LogInState extends State<LogIn> {
                         return null;
                       },
                       controller: passwordcontroller,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "Password",
                         prefixIcon: Icon(Icons.password),
                       ),
                       obscureText: true,
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
                           "Forgot Password?",
                           style: GoogleFonts.nunito(
-                              color: Color.fromARGB(255, 46, 31, 35),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600),
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 60),
+                    const SizedBox(height: 60),
                     GestureDetector(
                       onTap: () {
                         if (_formkey.currentState!.validate()) {
@@ -161,48 +162,52 @@ class _LogInState extends State<LogIn> {
                         }
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 10),
+                        padding: const EdgeInsets.symmetric(vertical: 10),
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color.fromARGB(255, 255, 211, 182),
-                                Color.fromARGB(255, 220, 164, 124),
-                                Color(0xFFb4817e),
-                              ],
-                            ),
-                            borderRadius: BorderRadius.circular(30)),
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color(0xFF91eae4),
+                              Color(0xFF86a8e7),
+                              Color(0xFF7f7fd5),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                         child: Center(
                           child: Text(
                             "SIGN IN",
                             style: GoogleFonts.nunito(
-                                color: Colors.black,
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.black,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
                           "Don't have account?",
                           style: GoogleFonts.nunito(
-                              color: Color.fromARGB(255, 46, 31, 35),
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600),
+                            color: Colors.black,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ],
                     ),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SignUp(),
-                            ));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUp(),
+                          ),
+                        );
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -210,9 +215,10 @@ class _LogInState extends State<LogIn> {
                           Text(
                             "Sign up",
                             style: GoogleFonts.nunito(
-                                color: Color.fromARGB(255, 78, 53, 60),
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.black,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -220,7 +226,7 @@ class _LogInState extends State<LogIn> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -3,9 +3,10 @@ import 'package:doctor_booking_flutter/services/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class Booking extends StatefulWidget {
   String service;
-  Booking({required this.service});
+  Booking({super.key, required this.service});
 
   @override
   State<Booking> createState() => _BookingState();
@@ -64,9 +65,19 @@ class _BookingState extends State<Booking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 142, 172, 205),
+      // backgroundColor: Color.fromARGB(255, 142, 172, 205),
       body: Container(
-        margin: EdgeInsets.only(left: 10),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF91eae4),
+              Color(0xFF86a8e7),
+              Color(0xFF7f7fd5),
+            ],
+          ),
+        ),
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        // margin: EdgeInsets.only(left: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -74,8 +85,8 @@ class _BookingState extends State<Booking> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Padding(
-                padding: const EdgeInsets.only(top: 50),
+              child: const Padding(
+                padding: EdgeInsets.only(top: 50),
                 child: Icon(
                   Icons.arrow_back_ios_new_rounded,
                   color: Colors.black,
@@ -83,7 +94,7 @@ class _BookingState extends State<Booking> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               "Your Path to\nBetter Heart Health ",
               style: GoogleFonts.nunito(
@@ -91,15 +102,15 @@ class _BookingState extends State<Booking> {
                   fontSize: 28,
                   fontWeight: FontWeight.w500),
             ),
-            SizedBox(height: 40),
-            Container(
+            const SizedBox(height: 40),
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Image.asset(
-                "assets/doctors.png",
+                "assets/docs.png",
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               widget.service,
               style: GoogleFonts.nunito(
@@ -107,15 +118,20 @@ class _BookingState extends State<Booking> {
                   fontSize: 28,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              margin: EdgeInsets.only(right: 15, left: 5),
-              padding: EdgeInsets.only(
+              margin: const EdgeInsets.only(right: 15, left: 5),
+              padding: const EdgeInsets.only(
                 top: 10,
                 bottom: 10,
               ),
               decoration: BoxDecoration(
-                  color: Color(0xFFb4817e),
+                  gradient: const LinearGradient(
+                    colors: [
+                      Color(0xFFffd89b),
+                      Color(0xFF19547b),
+                    ],
+                  ),
                   borderRadius: BorderRadius.circular(20)),
               width: MediaQuery.of(context).size.width,
               child: Column(
@@ -127,7 +143,7 @@ class _BookingState extends State<Booking> {
                         fontSize: 20,
                         fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -135,12 +151,12 @@ class _BookingState extends State<Booking> {
                         onTap: () {
                           _selectDate(context);
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.calendar_month,
                           size: 30,
                         ),
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       Text(
                         "${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}",
                         style: GoogleFonts.nunito(
@@ -153,14 +169,19 @@ class _BookingState extends State<Booking> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
-              margin: EdgeInsets.only(right: 15, left: 5),
-              padding: EdgeInsets.only(top: 10, bottom: 10),
+              margin: const EdgeInsets.only(right: 15, left: 5),
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
               decoration: BoxDecoration(
-                  color: Color(0xFFb4817e),
+                  gradient: const LinearGradient(
+                    colors: [
+                      Color(0xFFffd89b),
+                      Color(0xFF19547b),
+                    ],
+                  ),
                   borderRadius: BorderRadius.circular(20)),
               width: MediaQuery.of(context).size.width,
               child: Column(
@@ -172,7 +193,7 @@ class _BookingState extends State<Booking> {
                         fontSize: 20,
                         fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -180,12 +201,12 @@ class _BookingState extends State<Booking> {
                         onTap: () {
                           _selectTime(context);
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.alarm,
                           size: 30,
                         ),
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       Text(
                         _selectedTime.format(context),
                         style: GoogleFonts.nunito(
@@ -198,7 +219,7 @@ class _BookingState extends State<Booking> {
                 ],
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             GestureDetector(
               onTap: () async {
                 Map<String, dynamic> userBookingMap = {
@@ -213,6 +234,7 @@ class _BookingState extends State<Booking> {
                 await DatabaseMethods()
                     .addUserBooking(userBookingMap)
                     .then((value) {
+                  // ignore: use_build_context_synchronously
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(
                     "Services has been booked Successfully!",
@@ -221,11 +243,11 @@ class _BookingState extends State<Booking> {
                 });
               },
               child: Container(
-                margin: EdgeInsets.only(right: 15, left: 5),
+                margin: const EdgeInsets.only(right: 15, left: 5),
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 254, 249, 217),
+                    color: const Color.fromARGB(192, 254, 249, 217),
                     borderRadius: BorderRadius.circular(20)),
                 child: Center(
                   child: Text(

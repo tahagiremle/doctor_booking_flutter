@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctor_booking_flutter/admin/booking_admin.dart';
-import 'package:doctor_booking_flutter/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,18 +21,18 @@ class _AdminLoginState extends State<AdminLogin> {
         child: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 30,
                 top: 50,
               ),
               height: MediaQuery.of(context).size.height / 2,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Color.fromARGB(255, 255, 211, 182),
-                    Color.fromARGB(255, 220, 164, 124),
-                    Color(0xFFb4817e),
+                    Color(0xFF91eae4),
+                    Color(0xFF86a8e7),
+                    Color(0xFF7f7fd5),
                   ],
                 ),
               ),
@@ -47,12 +46,12 @@ class _AdminLoginState extends State<AdminLogin> {
             ),
             Container(
               padding:
-                  EdgeInsets.only(top: 40, left: 30, right: 30, bottom: 30),
+                  const EdgeInsets.only(top: 40, left: 30, right: 30, bottom: 30),
               margin:
                   EdgeInsets.only(top: MediaQuery.of(context).size.height / 4),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
@@ -63,51 +62,51 @@ class _AdminLoginState extends State<AdminLogin> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 40),
+                      const SizedBox(height: 40),
                       Text(
                         "Username",
                         style: GoogleFonts.nunito(
-                            color: Color.fromARGB(255, 158, 95, 50),
+                            color: const Color.fromARGB(255, 1, 73, 102),
                             fontSize: 23,
                             fontWeight: FontWeight.w700),
                       ),
                       TextFormField(
                         controller: usernamecontroller,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: "Username",
                           prefixIcon: Icon(Icons.mail),
                         ),
                       ),
-                      SizedBox(height: 40),
+                      const SizedBox(height: 40),
                       Text(
                         "Password",
                         style: GoogleFonts.nunito(
-                            color: Color.fromARGB(255, 158, 95, 50),
+                            color: const Color.fromARGB(255, 1, 73, 102),
                             fontSize: 23,
                             fontWeight: FontWeight.w700),
                       ),
                       TextFormField(
                         controller: userpasswordcontroller,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: "Password",
                           prefixIcon: Icon(Icons.password),
                         ),
                         obscureText: true,
                       ),
-                      SizedBox(height: 60),
+                      const SizedBox(height: 60),
                       GestureDetector(
                         onTap: () {
                           loginAdmin();
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 10),
+                          padding: const EdgeInsets.symmetric(vertical: 10),
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
-                              gradient: LinearGradient(
+                              gradient: const LinearGradient(
                                 colors: [
-                                  Color.fromARGB(255, 255, 211, 182),
-                                  Color.fromARGB(255, 220, 164, 124),
-                                  Color(0xFFb4817e),
+                                  Color(0xFF91eae4),
+                                  Color(0xFF86a8e7),
+                                  Color(0xFF7f7fd5),
                                 ],
                               ),
                               borderRadius: BorderRadius.circular(30)),
@@ -159,7 +158,7 @@ class _AdminLoginState extends State<AdminLogin> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => BookingAdmin(),
+                  builder: (context) => const BookingAdmin(),
                 ),
               );
             }
