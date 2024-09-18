@@ -236,16 +236,19 @@ class _BookingState extends State<Booking> {
                     .then((value) {
                   // ignore: use_build_context_synchronously
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      backgroundColor: Colors.green,
                       content: Text(
-                    "Services has been booked Successfully!",
-                    style: GoogleFonts.nunito(fontSize: 20),
-                  )));
+                        "Services has been booked Successfully!",
+                        style: GoogleFonts.nunito(
+                            fontSize: 20, color: Colors.black),
+                      )));
                 });
               },
               child: Container(
                 margin: const EdgeInsets.only(right: 15, left: 5),
                 width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 decoration: BoxDecoration(
                     color: const Color.fromARGB(192, 254, 249, 217),
                     borderRadius: BorderRadius.circular(20)),

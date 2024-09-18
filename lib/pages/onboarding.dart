@@ -1,4 +1,5 @@
 import 'package:doctor_booking_flutter/pages/homepage.dart';
+import 'package:doctor_booking_flutter/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -46,12 +47,13 @@ class _OnboardingState extends State<Onboarding> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const HomePage(),
+                    builder: (context) => const LogIn(),
                   ),
                 );
               },
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 13),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 13),
                 decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 222, 229, 212),
                     borderRadius: BorderRadius.circular(20)),

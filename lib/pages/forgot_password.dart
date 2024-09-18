@@ -20,9 +20,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email!);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          backgroundColor: Colors.green,
           content: Text(
             "Password Reset Email has been sent!",
-            style: GoogleFonts.nunito(fontSize: 20),
+            style: GoogleFonts.nunito(fontSize: 20, color: Colors.black),
           ),
         ),
       );
@@ -30,9 +31,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       if (e.code == "user-not-found") {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
+            backgroundColor: Colors.red,
             content: Text(
               "No user found for email.",
-              style: GoogleFonts.nunito(fontSize: 20),
+              style: GoogleFonts.nunito(fontSize: 20, color: Colors.black),
             ),
           ),
         );
@@ -114,8 +116,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 }
               },
               child: Container(
-                padding:
-                    const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+                padding: const EdgeInsets.only(
+                    top: 10, bottom: 10, left: 20, right: 20),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.orangeAccent),
