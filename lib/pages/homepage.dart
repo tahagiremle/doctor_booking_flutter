@@ -11,22 +11,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String? name = "";
+  String name = ''; 
 
   getthedatafromsharedpref() async {
-    name = await SharedPreferencesHelper().getUserName();
-    setState(() {});
-  }
-
-  getontheload() async {
-    await getthedatafromsharedpref();
-    setState(() {});
+    try {
+      final userName = await SharedPreferencesHelper().getUserName();
+      setState(() {
+        name = userName ?? ''; 
+      });
+    } catch (e) {
+      print('Error: $e');
+    }
   }
 
   @override
   void initState() {
-    getontheload();
     super.initState();
+    getthedatafromsharedpref();
   }
 
   @override
@@ -55,16 +56,18 @@ class _HomePageState extends State<HomePage> {
                     Text(
                       "Hello,",
                       style: GoogleFonts.nunito(
-                          color: Colors.black87,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500),
+                        color: Colors.black87,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     Text(
-                      name!,
+                      name.isNotEmpty ? name : 'Welcome!',
                       style: GoogleFonts.nunito(
-                          color: Colors.black87,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold),
+                        color: Colors.black87,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
@@ -76,20 +79,19 @@ class _HomePageState extends State<HomePage> {
                     width: 58,
                     fit: BoxFit.cover,
                   ),
-                )
+                ),
               ],
             ),
             SizedBox(height: 20),
-            Divider(
-              color: Colors.black38,
-            ),
+            Divider(color: Colors.black38),
             SizedBox(height: 20),
             Text(
               "Services",
               style: GoogleFonts.nunito(
-                  color: Colors.black87,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold),
+                color: Colors.black87,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             SizedBox(height: 20),
             Row(
@@ -99,21 +101,23 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Booking(service: 'Checkups'),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Booking(service: 'Checkups'),
+                        ),
+                      );
                     },
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xFFffd89b),
-                              Color(0xFF19547b),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(20)),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFffd89b),
+                            Color(0xFF19547b),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -127,9 +131,10 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "Checkups",
                             style: GoogleFonts.nunito(
-                                color: Colors.black87,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.black87,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -142,22 +147,23 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                Booking(service: "ECG Monitoring"),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Booking(service: "ECG Monitoring"),
+                        ),
+                      );
                     },
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xFFffd89b),
-                              Color(0xFF19547b),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(20)),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFffd89b),
+                            Color(0xFF19547b),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -171,9 +177,10 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "ECG Monitoring",
                             style: GoogleFonts.nunito(
-                                color: Colors.black87,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.black87,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -190,22 +197,23 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                Booking(service: "Cholesterol Level"),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Booking(service: "Cholesterol Level"),
+                        ),
+                      );
                     },
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xFFffd89b),
-                              Color(0xFF19547b),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(20)),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFffd89b),
+                            Color(0xFF19547b),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -219,9 +227,10 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "Cholesterol Level",
                             style: GoogleFonts.nunito(
-                                color: Colors.black87,
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.black87,
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -234,22 +243,23 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                Booking(service: "Blood Pressure"),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Booking(service: "Blood Pressure"),
+                        ),
+                      );
                     },
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xFFffd89b),
-                              Color(0xFF19547b),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(20)),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFffd89b),
+                            Color(0xFF19547b),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -263,9 +273,10 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "Blood Pressure",
                             style: GoogleFonts.nunito(
-                                color: Colors.black87,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.black87,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -282,22 +293,23 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                Booking(service: "Cardiac Tests"),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Booking(service: "Cardiac Tests"),
+                        ),
+                      );
                     },
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xFFffd89b),
-                              Color(0xFF19547b),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(20)),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFffd89b),
+                            Color(0xFF19547b),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -311,9 +323,10 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "Cardiac Tests",
                             style: GoogleFonts.nunito(
-                                color: Colors.black87,
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.black87,
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -326,22 +339,23 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                Booking(service: "Heart Assessment"),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Booking(service: "Heart Assessment"),
+                        ),
+                      );
                     },
                     child: Container(
                       height: 150,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xFFffd89b),
-                              Color(0xFF19547b),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(20)),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFffd89b),
+                            Color(0xFF19547b),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -355,9 +369,10 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "Heart Assessment",
                             style: GoogleFonts.nunito(
-                                color: Colors.black87,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.black87,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -365,7 +380,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
